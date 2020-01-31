@@ -1,0 +1,28 @@
+﻿@model PetGrooming.Models.Pet
+
+@{
+    ViewBag.Title = "Show";
+}
+@*To DO: Better Styling*@
+@*To DO: show owner info*@
+<h2>Show Pet</h2>
+<a href="Pet/List">Back to list</a>
+<div>
+    <a href="/Pet/Update/@Model.PetID"><button type="button" class="btn-primary">Update</button></a>
+    <a href="/Pet/Delete/@Model.PetID"><button type="button" class="btn-danger">Delete</button></a>
+</div>
+<div>
+    Name : @Model.PetName
+</div>
+<div>
+    Weight : @Model.Weight
+</div>
+<div>
+    Species : @Model.Species.Name
+</div>
+<div>
+    Color : @Model.Color
+</div>
+<div>
+    Notes : @Model.Notes
+</div>

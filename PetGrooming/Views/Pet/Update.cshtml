@@ -1,0 +1,50 @@
+﻿@model PetGrooming.Models.ViewModels.UpdatePet
+
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update @Model.pet.PetName</h2>
+<a href="/Pet/List">Go Back to List</a>
+<form method="POST" action="/Pet/Update/@Model.pet.PetID">
+    <div class="form-group">
+        <div class="form-control">
+            <label for="PetName">PetName</label>
+            <input id="PetName" type="text" name="PetName" value=@Model.pet.PetName required/>
+        </div>
+        <div class="form-control">
+            <label for="SpeciesID">Species</label>
+            <select id="SpeciesID" type="text" name="SpeciesID" required>
+                @{
+                    //A rendering loop for species
+                    foreach (var species in Model.species)
+                    {
+                        //to preserve the previously selected species
+                        if (species.SpeciesID == Model.pet.SpeciesID)
+                        {
+                            <option value="@species.SpeciesID" selected>@species.Name </option>
+                        }
+                        else
+                        {
+                            <option value="@species.SpeciesID">@species.Name</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-control">
+            <label for="PetWeight">PetWeight</label>
+            <input id="PetWeight" type="text" name="PetWeight" value=@Model.pet.Weight required/>
+        </div>
+        <div class="form-control">
+            <label for="PetColor">PetColor</label>
+            <input id="PetColor" type="text" name="PetColor" value=@Model.pet.Color required/>
+        </div>
+        <div class="form-group">
+            <label for="PetNotes">Notes</label>
+            <textarea id="PetNotes" class="form-control" type="text" rows="3" name="PetNotes" required>@Model.pet.Notes</textarea>
+        </div>
+        <button type="submit" class="btn-primary">Update Pet</button>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Add";
+}
+@*To DO: Also a tablular form to associate pet to species while adding a new species*@
+<h2>Add a new Species</h2>
+<a href="/Pet/List">Go Back to List</a>
+
+<form method="POST" action="/Species/Add">
+    <div class="form-group">
+        <label for="SpeciesName">Name:</label>
+        <input id="SpeciesName" class="form-control" type="text" name="SpeciesName" required/>
+    </div>
+    <input type="submit" class="btn-primary" value="Add Species">
+</form>

@@ -1,0 +1,27 @@
+﻿@model List<PetGrooming.Models.Species>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Species</h2>
+@*To DO: better styling of buttons*@
+<div>
+    <a href="/Species/Add"><button type="button" class="btn-primary">Add</button></a>
+</div>
+<table class="list">
+    <tr>
+        <th>Species Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    @{
+        foreach (var species in Model)
+        {
+            <tr>
+                <td><a href="/Species/Show/@species.SpeciesID">@species.Name</a></td>
+                <td><a href="/Species/Update/@species.SpeciesID">Update</a></td>
+                <td><a href="/Species/Delete/@species.SpeciesID">Delete</a></td>
+            </tr>
+        }
+    }
+</table>
